@@ -46,3 +46,32 @@
   font-weight: 600;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
 }
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, 150px);
+  grid-template-rows: auto;
+  list-style: none;
+  gap: 3rem;
+  margin: 0 auto 5.2rem;
+  text-align: center;
+}
+.list-item {
+  align-items: center;
+  background-color: #eee;
+  border-radius: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  transition: 0.3s;
+}
+.list-item:hover {
+  transition: 0.3s;
+  transform: scale(1.1);
+}
+.caracter-img {
+  max-height: 100px;
+  object-fit: cover;
+}
