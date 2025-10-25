@@ -41,6 +41,63 @@ function App() {
     const newShuffled = shuffle(characters);
     setCharacters(newShuffled);
   }, [score.current]);
+  return (
+    <>
+      <header className="header">
+        <h1 className="title">Rick and Morty memory game</h1>
+      </header>
+      <main className="container">
+        <div className="score-box">
+          <div className="current-score-box">
+            <p className="current-score-p">Current score:</p>
+            <p className="current-score">{score.current}</p>
+          </div>
+          <div className="high-score-box">
+            <p className="high-score-p">High score:</p>
+            <p className="high-score">{score.high}</p>
+          </div>
+        </div>
+        <ul className="list">
+          {characters.map((character) => {
+            return (
+              <Caracter
+                key={character.id}
+                {...character}
+                clicked={markCharacterAsClicked}
+                selectCard={selectCharacter}
+                setScore={() => {
+                  setScore((prev) => ({
+                    current: prev.current + 1,
+                    high: prev.high <= prev.current ? prev.high + 1 : prev.high,
+                  }));
+                }}
+              />
+            );
+          })}
+        </ul>
+      </main>
+      {(selectedCard.isClicked === true || score.current === 12) && (
+        <>
+          <div className="overlay"></div>
+          <div className="game-over-box">
+            <p className="game-over-p">Game over!</p>
+            <p className="score-p">
+              Your score: <span className="score">{score.current}</span>
+            </p>
+            <button
+              type="button"
+              className="play-again-btn"
+              onClick={() => {
+                reset();
+              }}
+            >
+              Play again?
+            </button>
+          </div>
+        </>
+      )}
+    </>
+  );
 }
 
 export default App;
