@@ -4,9 +4,9 @@
   display: flex;
   flex-direction: column;
   gap: 70px;
+  position: relative;
 }
 .header {
-  width: 100%;
   background-color: #212529;
   color: #eee;
   text-align: center;
@@ -74,4 +74,46 @@
 .caracter-img {
   max-height: 100px;
   object-fit: cover;
+}
+.overlay {
+  background-color: rgba(0, 0, 0, 0.679);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.game-over-box {
+  background-color: #eee;
+  position: absolute;
+  top: 30%;
+  left: 41.6%;
+  z-index: 2;
+  text-align: center;
+  padding: 30px 60px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.game-over-p {
+  font-weight: 600;
+  color: #444;
+  font-size: 20px;
+}
+.score-p {
+  font-weight: 400;
+  color: #444;
+  font-size: 17px;
+}
+.play-again-btn {
+  background-color: #212529;
+  color: #eee;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 10rem;
+  border: none;
+  cursor: pointer;
 }
